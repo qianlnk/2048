@@ -21,8 +21,8 @@ func NewGame() *GameCells {
 	termbox.SetOutputMode(termbox.Output256)
 	termbox.SetInputMode(termbox.InputEsc)
 	game := new(GameCells)
-	game.Genarate()
-	game.Genarate()
+	game.Generate()
+	game.Generate()
 
 	log.SetOutputPath("./game.log")
 	log.SetFormatter("logstash")
@@ -247,7 +247,7 @@ func (g *GameCells) GameOver() bool {
 	return true
 }
 
-func (g *GameCells) Genarate() {
+func (g *GameCells) Generate() {
 	type point struct {
 		row int
 		col int
@@ -324,7 +324,7 @@ func (g *GameCells) Play() {
 		}
 
 		if redraw {
-			g.Genarate()
+			g.Generate()
 			log.Info("G", *g)
 			g.Draw(g.GameOver())
 		}
